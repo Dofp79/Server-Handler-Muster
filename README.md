@@ -49,10 +49,8 @@ Stell dir eine **Rezeption in einem Hotel** vor:
 
 📫 Kontakt & Projektunterstützung
 Bei Fragen, Feedback oder zur Zusammenarbeit rund um das Modul „Betriebliche Informationssysteme“ erreichen Sie mich über folgende Kanäle:
-
 👤 Doniman F. Peña Parra
 Studierender | Wirtschaftsinformatik
-
 📧 E-Mail: dofp79@hotmail.com
 🔗 LinkedIn: (Profil-Link kann optional ergänzt werden)
 🌐 Virtueller Tutor (GPT):
