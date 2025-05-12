@@ -49,6 +49,7 @@ Stell dir eine **Rezeption in einem Hotel** vor:
 
 📫 Kontakt
 Fragen oder Feedback?
+
 Doniman F. Peña Parra
 
 🌐 GPT-Link zur Projektunterstützung https://chatgpt.com/g/g-67f2ec205b0c819181790826b6abdad6-tutor-fur-betriebliche-informationssysteme
