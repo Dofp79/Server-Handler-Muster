@@ -1,11 +1,41 @@
 /*
+* ============================================================================
+ * Projekt:     CLI-Multithreaded Baumarkt-Server (Server-/Handler-Muster)
+ * Datei:       ServerHandlerBaumarkt.cs
+ * Autor:       Doniman F. Peña Parra
+ * Datum:       14. Mai 2025
+ * Kurs:        betriebliche informationssysteme
  * ============================================================================
- * Projekt:     CLI-Multithreaded Server-/Handler-Muster (Sequenzdiagramm)
- * Datei:       ServerHandler.cs
- * Autor:       [DEIN NAME HIER]
- * Datum:       [DATUM DER ABGABE]
- * Kurs:        [KURSBEZEICHNUNG / MODUL]
+ * Beschreibung:
+ * Dieses C#-Programm demonstriert die Implementierung des Server-/Handler-Musters 
+ * basierend auf einem UML-Sequenzdiagramm. Das Diagramm zeigt die Kommunikation 
+ * zwischen einem Client, einem Server und einem Handler.
+ *
+ * Ablauf:
+ * - Der Client sendet eine Anfrage (request) an den Server.
+ * - Der Server erstellt einen Handler und delegiert die Aufgabe.
+ * - Der Handler verarbeitet die Aufgabe in einem separaten Thread (Multithreading).
+ * - Nach erfolgreicher Bearbeitung antwortet der Handler an den Client.
+ * - Der Client erhält eine Abschlussnachricht (finished).
+ *
+ * Zielsetzung:
+ * Die Implementierung soll das serverseitige Delegieren von Aufgaben an Threads 
+ * zeigen, ohne dabei die Fähigkeit des Servers zu blockieren, weitere Anfragen 
+ * anzunehmen. Dieses Muster ist typisch für Multitasking-Architekturen und wird 
+ * in modernen verteilten Systemen und Serveranwendungen verwendet.
+ *
+ * Besonderheiten:
+ * - Verwendung von Multithreading über System.Threading.Thread
+ * - Klassenstruktur entspricht dem Diagramm: Client, Server, Handler
+ * - Rückmeldung an den Client erfolgt per Callback-Methode
+ * - Ausgaben im Konsolenstil zur einfachen Simulation
+ *
+ * Hinweis:
+ * Dieser Code kann auch erweitert werden zu einer humorvollen Variante
+ * (z. B. Baumarkt-/Pizzabestell-Server), ohne die fachliche Struktur zu verlieren.
  * ============================================================================
+ */
+
  * Beschreibung:
  * Dieses C#-Programm demonstriert die Implementierung des Server-/Handler-Musters 
  * basierend auf einem UML-Sequenzdiagramm. Das Diagramm zeigt die Kommunikation 
