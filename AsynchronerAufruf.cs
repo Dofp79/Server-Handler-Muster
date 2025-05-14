@@ -29,7 +29,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-// 🔧 Handler-Klasse: Führt Aufgabe asynchron aus und ruft Client-Callback auf
+// Handler-Klasse: Führt Aufgabe asynchron aus und ruft Client-Callback auf
 public class Caller
 {
     private Action<string> _callback; // Methode, die nach Abschluss aufgerufen wird
@@ -54,12 +54,12 @@ public class Caller
     }
 }
 
-// 🧠 Client-Klasse: Startet den Prozess und definiert die Callback-Methode
+//  Client-Klasse: Startet den Prozess und definiert die Callback-Methode
 public class Client
 {
     public static void Main()
     {
-        Console.WriteLine("🧠 Client delegiert Arbeit und macht sofort weiter...");
+        Console.WriteLine("Client delegiert Arbeit und macht sofort weiter...");
 
         // Übergibt Methode als Callback an den Caller
         Caller caller = new Caller(ErgebnisVerarbeiten);
@@ -74,6 +74,6 @@ public class Client
     // Callback-Methode: Wird vom Caller aufgerufen, sobald Ergebnis vorliegt
     public static void ErgebnisVerarbeiten(string result)
     {
-        Console.WriteLine($"✅ Client erhält Callback: {result}");
+        Console.WriteLine($"Client erhält Callback: {result}");
     }
 }
