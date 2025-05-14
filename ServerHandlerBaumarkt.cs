@@ -31,64 +31,73 @@
  * ============================================================================
  */
 
-
-
 using System;
 using System.Threading;
 
+//  Handler-Klasse: Repräsentiert einen Pizzabäcker, der Bestellungen bearbeitet
 public class PizzaChef
 {
     private string pizzaType;
     private static Random random = new Random();
 
+    // Konstruktor: Erhält die bestellte Pizzasorte
     public PizzaChef(string pizzaType)
     {
         this.pizzaType = pizzaType;
     }
 
+    // Methode, die den "Backvorgang" simuliert – läuft in einem separaten Thread
     public void BakePizza()
     {
-        Console.WriteLine($" [Küche] Bestelle {pizzaType} erhalten. Heize Ofen vor...");
-        int bakeTime = random.Next(2, 5); // 2–4 Sekunden Backzeit
-        Thread.Sleep(bakeTime * 1000);
-        Console.WriteLine($" [Küche] Deine {pizzaType} ist fertig gebacken nach {bakeTime} Sekunden!");
+        Console.WriteLine($" [Küche] Bestellung '{pizzaType}' erhalten. Heize Ofen vor...");
+        int bakeTime = random.Next(2, 5); // Simuliere Backzeit von 2–4 Sekunden
+        Thread.Sleep(bakeTime * 1000);    // Blockiere den Thread für die "Zubereitung"
+        Console.WriteLine($" [Küche] Deine '{pizzaType}' ist fertig gebacken nach {bakeTime} Sekunden!");
     }
 }
 
+//  Server-Klasse: Nimmt Bestellungen entgegen und startet für jede einen Handler-Thread
 public class PizzaServer
 {
+    // Methode zum Starten des Servers – wird aus Main() aufgerufen
     public void Start()
     {
         Console.WriteLine(" Willkommen beim Multi-Threaded Pizza-Service!");
         Console.WriteLine("Gib eine Pizzasorte ein (z. B. Margherita, Salami) oder 'exit' zum Beenden:");
 
-        while (true)
+        while (true) // Endlosschleife für Auftragsannahme
         {
-            Console.Write("\n🍽️ >> ");
-            string? input = Console.ReadLine();
+            Console.Write("\n🍽️ >> "); // Eingabeaufforderung
+            string? input = Console.ReadLine(); // Lese Benutzereingabe
 
+            // Leere oder ungültige Eingabe behandeln
             if (string.IsNullOrWhiteSpace(input))
             {
                 Console.WriteLine(" Bitte eine gültige Pizzasorte eingeben!");
                 continue;
             }
 
-            input = input.Trim();
+            input = input.Trim(); // Leerzeichen entfernen
 
+            // Falls Benutzer 'exit' eingibt → Server beenden
             if (input.ToLower() == "exit")
             {
                 Console.WriteLine(" Der Ofen ist aus. Bis bald!");
                 break;
             }
 
+            // Erstelle neuen Handler (PizzaChef) mit dem eingegebenen Pizzatyp
             PizzaChef chef = new PizzaChef(input);
+
+            // Starte neuen Thread mit der BakePizza()-Methode
             Thread thread = new Thread(new ThreadStart(chef.BakePizza));
             thread.Start();
 
-            Console.WriteLine($" [Server] Bestellung für {input} aufgenommen. Weiter geht’s!");
+            Console.WriteLine($" [Server] Bestellung für '{input}' aufgenommen. Weiter geht’s!");
         }
     }
 
+    // Einstiegspunkt: Initialisiert und startet den Server
     public static void Main()
     {
         PizzaServer server = new PizzaServer();
