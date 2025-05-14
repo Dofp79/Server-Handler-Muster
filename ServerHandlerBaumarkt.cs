@@ -18,14 +18,16 @@
  * ============================================================================
  */
 
-
 using System;
 using System.Threading;
 
+// Handler-Klasse: Simuliert einen Lagerarbeiter, der Aufträge parallel bearbeitet
 public class Lagerarbeiter
 {
     private string produkt;
     private int menge;
+
+    // Sprüche zur Ausgabe nach Erledigung – humorvoll für mehr Spaß
     private static string[] sprueche = new[]
     {
         " Hab ich aus Regal 3 geholt.",
@@ -34,24 +36,29 @@ public class Lagerarbeiter
         " Schon erledigt, Chef!",
         " Das war schwer, aber ich hab's!"
     };
-    private static Random rand = new Random();
 
+    private static Random rand = new Random(); // Für zufällige Sprüche und Bearbeitungszeit
+
+    // Konstruktor: Speichert Produktname und Menge
     public Lagerarbeiter(string produkt, int menge)
     {
         this.produkt = produkt;
         this.menge = menge;
     }
 
+    // Simuliert die Bearbeitung des Auftrags
     public void BearbeitePosition()
     {
         Console.WriteLine($" Lagerarbeiter bekommt Auftrag: {menge}x {produkt}");
-        Thread.Sleep(rand.Next(2000, 4000)); // simuliere Aufwand
+        Thread.Sleep(rand.Next(2000, 4000)); // Wartezeit 2–4 Sekunden zur Simulation
         Console.WriteLine($" {menge}x {produkt} bereitgestellt. {sprueche[rand.Next(sprueche.Length)]}");
     }
 }
 
+// Server-Klasse: Nimmt Bestellungen entgegen und startet jeweils einen Lagerarbeiter-Thread
 public class AuftragsServer
 {
+    // Hauptmethode zum Starten des Servers
     public void Start()
     {
         Console.WriteLine("Willkommen beim lustigen Baumarkt-Bestellserver!");
@@ -61,7 +68,7 @@ public class AuftragsServer
         while (true)
         {
             Console.Write("\n📥 >> ");
-            string? input = Console.ReadLine();
+            string? input = Console.ReadLine(); // Lese Nutzereingabe
 
             if (string.IsNullOrWhiteSpace(input))
             {
@@ -72,11 +79,12 @@ public class AuftragsServer
             if (input.Trim().ToLower() == "exit")
             {
                 Console.WriteLine(" Bis zum nächsten Einkauf!");
-                break;
+                break; // Beende die Schleife (Programm)
             }
 
-            var teile = input.Split(":");
+            var teile = input.Split(":"); // Erwartetes Format: "produkt:menge"
 
+            // Überprüfen, ob die Eingabe korrekt formatiert ist
             if (teile.Length != 2 || !int.TryParse(teile[1], out int menge))
             {
                 Console.WriteLine(" Ungültiges Format! Bitte wie 'farbeimer:2' eingeben.");
@@ -84,12 +92,14 @@ public class AuftragsServer
             }
 
             string produkt = teile[0].Trim();
+
             if (menge <= 0)
             {
                 Console.WriteLine(" Ernsthaft? Mindestens 1 Stück, bitte.");
                 continue;
             }
 
+            // Erstelle neuen Handler (Lagerarbeiter) und starte Thread
             Lagerarbeiter handler = new Lagerarbeiter(produkt, menge);
             Thread t = new Thread(handler.BearbeitePosition);
             t.Start();
@@ -98,6 +108,7 @@ public class AuftragsServer
         }
     }
 
+    // Einstiegspunkt des Programms
     public static void Main()
     {
         AuftragsServer server = new AuftragsServer();
