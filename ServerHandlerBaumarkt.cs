@@ -48,10 +48,10 @@ public class PizzaChef
 
     public void BakePizza()
     {
-        Console.WriteLine($"🍕 [Küche] Bestelle {pizzaType} erhalten. Heize Ofen vor...");
+        Console.WriteLine($" [Küche] Bestelle {pizzaType} erhalten. Heize Ofen vor...");
         int bakeTime = random.Next(2, 5); // 2–4 Sekunden Backzeit
         Thread.Sleep(bakeTime * 1000);
-        Console.WriteLine($"✅ [Küche] Deine {pizzaType} ist fertig gebacken nach {bakeTime} Sekunden!");
+        Console.WriteLine($" [Küche] Deine {pizzaType} ist fertig gebacken nach {bakeTime} Sekunden!");
     }
 }
 
@@ -59,7 +59,7 @@ public class PizzaServer
 {
     public void Start()
     {
-        Console.WriteLine("🍕 Willkommen beim Multi-Threaded Pizza-Service!");
+        Console.WriteLine(" Willkommen beim Multi-Threaded Pizza-Service!");
         Console.WriteLine("Gib eine Pizzasorte ein (z. B. Margherita, Salami) oder 'exit' zum Beenden:");
 
         while (true)
@@ -69,7 +69,7 @@ public class PizzaServer
 
             if (string.IsNullOrWhiteSpace(input))
             {
-                Console.WriteLine("🤨 Bitte eine gültige Pizzasorte eingeben!");
+                Console.WriteLine(" Bitte eine gültige Pizzasorte eingeben!");
                 continue;
             }
 
@@ -77,7 +77,7 @@ public class PizzaServer
 
             if (input.ToLower() == "exit")
             {
-                Console.WriteLine("👋 Der Ofen ist aus. Bis bald!");
+                Console.WriteLine(" Der Ofen ist aus. Bis bald!");
                 break;
             }
 
@@ -85,7 +85,7 @@ public class PizzaServer
             Thread thread = new Thread(new ThreadStart(chef.BakePizza));
             thread.Start();
 
-            Console.WriteLine($"🧾 [Server] Bestellung für {input} aufgenommen. Weiter geht’s!");
+            Console.WriteLine($" [Server] Bestellung für {input} aufgenommen. Weiter geht’s!");
         }
     }
 
