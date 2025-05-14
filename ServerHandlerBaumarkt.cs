@@ -1,3 +1,24 @@
+/*
+ * ============================================================================
+ * Projekt:     CLI-Multithreaded Baumarkt-Server (Server-/Handler-Muster)
+ * Datei:       ServerHandler.cs
+ * Autor:       [DEIN NAME]
+ * Datum:       [DATUM]
+ * Kurs:        [MODUL/KURS]
+ * ============================================================================
+ * Beschreibung:
+ * Dieses Programm simuliert prototypisch das Server-/Handler-Muster anhand 
+ * eines lustigen Baumarkt-Szenarios. Der "Server" nimmt per Konsole Aufträge 
+ * entgegen (z. B. „farbeimer:2“) und delegiert jede Auftragsposition an einen 
+ * separaten Thread der "Lagerarbeiter"-Handler-Klasse. 
+ *
+ * So wird demonstriert, wie Server und Handler unabhängig arbeiten können:
+ * Während der Lagerarbeiter im Hintergrund arbeitet, kann der Server weiter 
+ * Eingaben annehmen.
+ * ============================================================================
+ */
+
+
 using System;
 using System.Threading;
 
