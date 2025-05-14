@@ -97,7 +97,7 @@ public class Server
     // Server delegiert Auftrag an Handler
     public void HandleRequest(Client client, string aufgabe)
     {
-        Console.WriteLine("🖥️ [Server] Anfrage empfangen.");
+        Console.WriteLine(" [Server] Anfrage empfangen.");
         Handler handler = new Handler();
         // Delegation an Handler in neuem Thread
         Thread t = new Thread(() => handler.Delegate(client, aufgabe)); // delegate()
