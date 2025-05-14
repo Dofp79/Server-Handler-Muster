@@ -2,9 +2,9 @@
  * ============================================================================
  * Projekt:     Asynchroner Aufruf mit Callback (Server-/Handler-Muster)
  * Datei:       AsynchronerAufrufMitCallback.cs
- * Autor:       [DEIN NAME HIER]
- * Datum:       [DATUM DER ABGABE]
- * Kurs:        [MODUL / KURSNAME]
+ * Autor:       Doniman F. Peña Parra
+ * Datum:       14. Mai 2025
+ * Kurs:        betriebliche informationssysteme
  * ============================================================================
  * Beschreibung:
  * In dieser Variante des Server-/Handler-Musters wird der Abschluss der
