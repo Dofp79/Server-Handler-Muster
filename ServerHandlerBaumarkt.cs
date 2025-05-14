@@ -1,10 +1,10 @@
 /*
- * ============================================================================
+* ============================================================================
  * Projekt:     CLI-Multithreaded Baumarkt-Server (Server-/Handler-Muster)
  * Datei:       ServerHandler.cs
- * Autor:       [DEIN NAME]
- * Datum:       [DATUM]
- * Kurs:        [MODUL/KURS]
+ * Autor:       Doniman F. Peña Parra
+ * Datum:       14. Mai 2025
+ * Kurs:        betriebliche informationssysteme
  * ============================================================================
  * Beschreibung:
  * Dieses Programm simuliert prototypisch das Server-/Handler-Muster anhand 
