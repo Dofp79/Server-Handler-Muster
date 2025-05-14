@@ -7,11 +7,11 @@ public class Lagerarbeiter
     private int menge;
     private static string[] sprueche = new[]
     {
-        "✅ Hab ich aus Regal 3 geholt.",
-        "📦 Musste kurz suchen, aber gefunden!",
-        "🔧 Das lag ganz hinten im Lager!",
-        "🛠️ Schon erledigt, Chef!",
-        "😂 Das war schwer, aber ich hab's!"
+        " Hab ich aus Regal 3 geholt.",
+        " Musste kurz suchen, aber gefunden!",
+        " Das lag ganz hinten im Lager!",
+        " Schon erledigt, Chef!",
+        " Das war schwer, aber ich hab's!"
     };
     private static Random rand = new Random();
 
@@ -23,9 +23,9 @@ public class Lagerarbeiter
 
     public void BearbeitePosition()
     {
-        Console.WriteLine($"👷 Lagerarbeiter bekommt Auftrag: {menge}x {produkt}");
+        Console.WriteLine($" Lagerarbeiter bekommt Auftrag: {menge}x {produkt}");
         Thread.Sleep(rand.Next(2000, 4000)); // simuliere Aufwand
-        Console.WriteLine($"👷 {menge}x {produkt} bereitgestellt. {sprueche[rand.Next(sprueche.Length)]}");
+        Console.WriteLine($" {menge}x {produkt} bereitgestellt. {sprueche[rand.Next(sprueche.Length)]}");
     }
 }
 
@@ -33,7 +33,7 @@ public class AuftragsServer
 {
     public void Start()
     {
-        Console.WriteLine("🛒 Willkommen beim lustigen Baumarkt-Bestellserver!");
+        Console.WriteLine("Willkommen beim lustigen Baumarkt-Bestellserver!");
         Console.WriteLine("Format: <Produktname>:<Menge>  | z. B. schraube:10");
         Console.WriteLine("Gib 'exit' ein zum Beenden.");
 
@@ -44,13 +44,13 @@ public class AuftragsServer
 
             if (string.IsNullOrWhiteSpace(input))
             {
-                Console.WriteLine("😅 Bitte was Vernünftiges eingeben.");
+                Console.WriteLine(" Bitte was Vernünftiges eingeben.");
                 continue;
             }
 
             if (input.Trim().ToLower() == "exit")
             {
-                Console.WriteLine("👋 Bis zum nächsten Einkauf!");
+                Console.WriteLine(" Bis zum nächsten Einkauf!");
                 break;
             }
 
@@ -58,14 +58,14 @@ public class AuftragsServer
 
             if (teile.Length != 2 || !int.TryParse(teile[1], out int menge))
             {
-                Console.WriteLine("⚠️ Ungültiges Format! Bitte wie 'farbeimer:2' eingeben.");
+                Console.WriteLine(" Ungültiges Format! Bitte wie 'farbeimer:2' eingeben.");
                 continue;
             }
 
             string produkt = teile[0].Trim();
             if (menge <= 0)
             {
-                Console.WriteLine("🙄 Ernsthaft? Mindestens 1 Stück, bitte.");
+                Console.WriteLine(" Ernsthaft? Mindestens 1 Stück, bitte.");
                 continue;
             }
 
@@ -73,7 +73,7 @@ public class AuftragsServer
             Thread t = new Thread(handler.BearbeitePosition);
             t.Start();
 
-            Console.WriteLine($"📑 Auftrag aufgenommen: {menge}x {produkt} – wird bearbeitet...");
+            Console.WriteLine($" Auftrag aufgenommen: {menge}x {produkt} – wird bearbeitet...");
         }
     }
 
