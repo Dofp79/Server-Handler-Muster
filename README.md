@@ -52,7 +52,7 @@ Stell dir eine **Rezeption in einem Hotel** vor:
 **Fragen oder Feedback?**  
 **Doniman F. Peña Parra**
 
-- 🌐 [GPT-Link zur Projektunterstützung](https://chatgpt.com/g/g-67f2ec205b0c819181790826b6abdad6-tutor-fur-betriebliche-informationssysteme)
+- 🌐 [GPT-Link zur Projektunterstützung: Tutor für betriebliche Informationssysteme](https://chatgpt.com/g/g-67f2ec205b0c819181790826b6abdad6-tutor-fur-betriebliche-informationssysteme)
 - 🔗 [LinkedIn](#) <!-- Füge hier deinen LinkedIn-Link ein -->
 - 📧 [E-Mail: dofp79@hotmail.com](mailto:dofp79@hotmail.com)
 
